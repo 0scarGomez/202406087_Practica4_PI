@@ -20,6 +20,9 @@ app.use('/api/comentarios', comentarioRoutes)
 const usuarioRoutes = require('./src/rutas/usuarioRoutes')
 app.use('/api/usuarios', usuarioRoutes)
 
+const catedraticoCursoRoutes = require('./src/rutas/catedraticoCursoRoutes')
+app.use('/api', catedraticoCursoRoutes)
+
 // Ruta de prueba - para verificar que el servidor funciona
 app.get('/', (req, res) => {
   res.json({ mensaje: 'Servidor Corriendo :D' })

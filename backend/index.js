@@ -11,6 +11,15 @@ app.use(express.json())
 const authRoutes = require('./src/rutas/authRoutes')
 app.use('/api/auth', authRoutes)
 
+const publicacionRoutes = require('./src/rutas/publicacionRoutes')
+app.use('/api/publicaciones', publicacionRoutes)
+
+const comentarioRoutes = require('./src/rutas/comentarioRoutes')
+app.use('/api/comentarios', comentarioRoutes)
+
+const usuarioRoutes = require('./src/rutas/usuarioRoutes')
+app.use('/api/usuarios', usuarioRoutes)
+
 // Ruta de prueba - para verificar que el servidor funciona
 app.get('/', (req, res) => {
   res.json({ mensaje: 'Servidor Corriendo :D' })

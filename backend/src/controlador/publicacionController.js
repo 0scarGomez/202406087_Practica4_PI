@@ -67,10 +67,11 @@ const crearPublicacion = async (req, res) => {
 
   try {
     await pool.query(`
-      INSERT INTO Publicacion 
-        (id_publicacion, Usuario_id_usuario, Curso_id_curso, Catedratico_id_catedratico, mensaje, fecha)
-      VALUES ($1, $2, $3, $4, $5, CURRENT_DATE)
-    `, [id_publicacion, id_usuario, id_curso, id_catedratico, mensaje])
+  INSERT INTO Publicacion 
+    (id_publicacion, id_usuario, id_curso, id_catedratico, mensaje, fecha,
+     Usuario_id_usuario, Curso_id_curso, Catedratico_id_catedratico)
+  VALUES ($1, $2, $3, $4, $5, CURRENT_DATE, $2, $3, $4)
+`, [id_publicacion, id_usuario, id_curso, id_catedratico, mensaje])
 
     res.status(201).json({ mensaje: 'Publicación creada correctamente' })
   } catch (error) {
